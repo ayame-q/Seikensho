@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>設定</title>
+	<link rel="stylesheet" href="css/main.css">
 	<script src="js/config.js"></script>
 </head>
 <body>
@@ -11,12 +12,14 @@
 		<h1>設定</h1>
 		<form onsubmit="setConfig(); return false;">
 			<dl>
-				<dt><label for="tax">消費税</label></dt>
+				<dt><label for="tax">消費税表示</label></dt>
 				<dd><select id="tax"><option value="include-tax">税込み表示</option><option value="without-tax">税抜き表示</option></select></dd>
-				<dt><label for="tax-rate"></label></dt>
+				<dt><label for="tax-rate">消費税税率</label></dt>
 				<dd><input type="number" id="tax-rate">%</dd>
 				<dt><label for="tax-fraction">消費税端数処理</label></dt>
 				<dd><select id="tax-fraction"><option value="floor">切り捨て</option><option value="round">四捨五入</option><option value="ceil">切り上げ</option></select></dd>
+				<dt><label for="save-path">自動保存場所</label></dt>
+				<dd><input type="text" id="save-path" disabled><input type="button" onclick="selectDir()" value="参照"></dd>
 				<dt><label for="shop">店名・社名表示(HTML)</label></dt>
 				<dd><textarea id="shop"></textarea></dd>
 			</dl>

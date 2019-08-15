@@ -193,6 +193,29 @@ body {
   padding-right: 0.1em;
 }
 
+.config {
+  font-size: large;
+}
+.config input, .config select, .config button {
+  font-size: large;
+}
+.config button {
+  padding: 0.5em 1em;
+}
+.config textarea {
+  width: 80%;
+  height: 5em;
+}
+.config input#save-path {
+  width: 80%;
+}
+.config dt {
+  font-size: x-large;
+}
+.config dd:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+
 .subtitle {
   display: block;
   font-size: smaller;

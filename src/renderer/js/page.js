@@ -57,7 +57,9 @@ ipcRenderer.on("data", (event, isPrint, data, config) => {
 	elementTotalLi.setAttribute("id", "totalTr");
 	elementTotalLi.innerHTML = lineTotal;
 	elementTable.appendChild(elementTotalLi);
-
+	if(isPrint && config.savePath){
+		ipcRenderer.send("save", data);
+	}
 });
 
 function fraction(num, rule="round") {

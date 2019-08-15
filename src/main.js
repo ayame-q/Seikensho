@@ -2,7 +2,10 @@ const { app, BrowserWindow, ipcMain, Menu, dialog } = require('electron');
 const path = require('path');
 const fs = require("fs");
 
-const debugMode = false;
+let debugMode = false;
+if(process.argv[2] === "debug"){
+	debugMode = true;
+}
 
 let mainWindow;
 let configWindow;
@@ -237,8 +240,26 @@ ipcMain.on("setConfig", (event, data) => {
 	mainWindow.reload();
 });
 
-ipcMain.on("save", (event, data, filename=null) => {
-
+ipcMain.on("save", (event, data, filePath=null) => {
+	if(!filePath){
+		let typeText;
+		switch (data.type) {
+			case "bill":
+				typeText = "請求書";
+				break;
+			case "estimate":
+				typeText = "見積書";
+				break;
+			case "deliverynote":
+				typeText = "納品書";
+				break;
+		}
+		filePath = path.join(
+			config.savePath, typeText + " - " + data.date + " - " + data.name[0] + ( data.name[1] ? "("+data.name[1]+")" : "" ) + ".skn"
+		);
+	}
+	console.log("Save: " + filePath);
+	fs.writeFileSync(filePath, JSON.stringify(data));
 });
 
 function openConfigWindow() {

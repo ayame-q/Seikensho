@@ -199,6 +199,29 @@ body{
 	}
 }
 
+.config{
+	font-size: large;
+	input, select, button{
+		font-size: large;
+	}
+	button{
+		padding: 0.5em 1em;
+	}
+	textarea{
+		width: 80%;
+		height: 5em;
+	}
+	input#save-path{
+		width: 80%;
+	}
+	dt{
+		font-size: x-large;
+	}
+	dd:not(:last-child){
+		margin-bottom: 0.5em;
+	}
+}
+
 .subtitle{
 	display: block;
 	font-size: smaller;
