@@ -241,7 +241,9 @@ ipcMain.on("setConfig", (event, data) => {
 });
 
 ipcMain.on("save", (event, data, filePath=null) => {
-	if(!filePath){
+	if(filePath){
+		fs.writeFile(filePath, JSON.stringify(data), () => {});
+	} else {
 		let typeText;
 		switch (data.type) {
 			case "bill":
@@ -255,12 +257,24 @@ ipcMain.on("save", (event, data, filePath=null) => {
 				break;
 		}
 		filePath = path.join(
-			config.savePath, typeText + " - " + data.date + " - " + data.name[0] + ( data.name[1] ? "("+data.name[1]+")" : "" ) + ".skn"
+			config.savePath, typeText + " - " + data.date + " - " + data.name[0] + ( data.name[1] ? "("+data.name[1]+")" : "" )
 		);
+		fs.writeFile(makeFilePath(filePath), JSON.stringify(data), () => {});
 	}
-	console.log("Save: " + filePath);
-	fs.writeFileSync(filePath, JSON.stringify(data));
+
 });
+
+function makeFilePath(filePath, num=1) {
+	try{
+		fs.statSync(num === 1 ? filePath + ".skn" : filePath + " " + num + ".skn");
+	} catch (e) {
+		if(e.code === "ENOENT"){
+			return (num === 1 ? filePath + ".skn" : filePath + " " + num + ".skn");
+		}
+	}
+	num++;
+	return makeFilePath(filePath, num)
+}
 
 function openConfigWindow() {
 	configWindow = new BrowserWindow({
