@@ -1,0 +1,21 @@
+{
+  "name": "Seikensho",
+  "version": "0.0.1",
+  "description": "Apps to create bill and estimate",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "npm run build-mac; npm run build-win64; npm run build-win32",
+    "build-win": "npm run build-win64; npm run build-win32",
+    "build-mac": "electron-packager ./ --out=./bin --platform=darwin --arch=x64 --icon=icon/app.icns --app-copyright='Author: ayame.space' --overwrite --app-bundle-id=space.ayame.tweetship.desktop --app-category-type=public.app-category.social-networking",
+    "build-win64": "electron-packager ./ --out=./bin --platform=win32 --arch=x64 --icon=icon/app.ico --app-copyright='Author: ayame.space' --overwrite",
+    "build-win32": "electron-packager ./ --out=./bin --platform=win32 --arch=ia32 --icon=icon/app.ico --app-copyright='Author: ayame.space' --overwrite"
+  },
+  "keywords": [],
+  "author": "ayame.space",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^6.0.2",
+    "electron-packager": "^14.0.4"
+  }
+}

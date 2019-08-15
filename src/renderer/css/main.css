@@ -1,0 +1,201 @@
+@charset "UTF-8";
+body {
+  margin-top: 0;
+}
+
+.index {
+  font-size: large;
+}
+.index h1 {
+  display: none;
+}
+.index nav {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.index nav ul {
+  list-style: none;
+  display: flex;
+  align-content: center;
+  padding: 0;
+}
+.index nav ul#menubuttons {
+  margin: 0.2em 0;
+}
+.index nav ul#menubuttons li {
+  padding: 0;
+}
+.index nav ul#menubuttons li button {
+  font-size: large;
+  padding: 1em 2em;
+}
+.index nav ul li {
+  margin: 0;
+  padding: 0 1em;
+}
+.index input {
+  font-size: large;
+}
+.index #p-name, .index #p-title, .index #p-name-double, .index #p-date {
+  padding: 0;
+  margin: 0;
+}
+.index #header-left {
+  float: left;
+  width: calc(100% - 12em);
+}
+.index #header-left #wrap-name {
+  display: flex;
+  align-items: center;
+}
+.index #header-left #wrap-name #p-name {
+  width: calc(90% - 7em);
+}
+.index #header-left #wrap-name #p-name input {
+  width: 99%;
+  display: block;
+}
+.index #header-left #wrap-name #p-title {
+  width: 7em;
+}
+.index #header-left #wrap-name #p-title select {
+  width: 100%;
+  font-size: 2.2em;
+  height: 1.5em;
+}
+.index #header-right {
+  float: right;
+  width: 12em;
+}
+.index #header-right #p-date {
+  width: 100%;
+}
+.index #header-right #p-date input {
+  width: 100%;
+  font-size: xx-large;
+}
+.index table {
+  clear: both;
+  width: 100%;
+  padding: 1em 0;
+}
+.index table tr td input {
+  width: 99%;
+}
+.index table tr td input.price, .index table tr td input.number {
+  text-align: right;
+}
+.index table tr td.product {
+  width: calc(100% - 18em);
+}
+.index table tr td.td-date {
+  width: 9em;
+}
+.index table tr td.td-price {
+  width: 6em;
+}
+.index table tr td.td-number {
+  width: 3em;
+}
+.index #buttons {
+  text-align: center;
+}
+.index #buttons button {
+  font-size: x-large;
+  padding: 1em 2em;
+}
+
+.page h1 {
+  font-size: xx-large;
+}
+.page header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+}
+.page #name-wrap {
+  float: left;
+  font-size: 1.5em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: solid 1px;
+  width: 60%;
+  box-sizing: border-box;
+}
+.page #name-wrap p {
+  margin: 0;
+}
+.page #comment-wrap {
+  float: left;
+  width: 60%;
+  box-sizing: border-box;
+}
+.page dl#total {
+  float: left;
+  font-size: 1.5em;
+  padding: 0.2em;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border: solid 2px;
+  width: 60%;
+  box-sizing: border-box;
+}
+.page dl#total dd::before {
+  content: "¥";
+}
+.page #shop {
+  float: right;
+  width: 40%;
+  padding-left: 5%;
+  box-sizing: border-box;
+  max-height: 130px;
+}
+.page #shop * {
+  max-height: 130px;
+}
+.page table {
+  clear: both;
+  width: 100%;
+  margin-top: 1em;
+  text-align: center;
+}
+.page table #totalTr {
+  font-size: 1.2em;
+}
+.page table td, .page table th {
+  border: solid 1px;
+}
+.page table td.td-date, .page table th.td-date {
+  width: 5em;
+}
+.page table td.td-product, .page table th.td-product {
+  width: calc(100% - 30em);
+}
+.page table td.td-unitprice, .page table th.td-unitprice {
+  width: 6em;
+}
+.page table td.td-number, .page table th.td-number {
+  width: 3em;
+}
+.page table td.td-total, .page table th.td-total {
+  width: 8em;
+}
+.page table td.td-note, .page table th.td-note {
+  width: 8em;
+}
+.page table td.num, .page table th.num {
+  text-align: right;
+  padding-right: 0.1em;
+}
+
+.subtitle {
+  display: block;
+  font-size: smaller;
+}
+
+/*# sourceMappingURL=main.css.map */

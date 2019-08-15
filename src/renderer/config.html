@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>設定</title>
+	<script src="js/config.js"></script>
+</head>
+<body>
+<main>
+	<article class="config">
+		<h1>設定</h1>
+		<form onsubmit="setConfig(); return false;">
+			<dl>
+				<dt><label for="tax">消費税</label></dt>
+				<dd><select id="tax"><option value="include-tax">税込み表示</option><option value="without-tax">税抜き表示</option></select></dd>
+				<dt><label for="tax-rate"></label></dt>
+				<dd><input type="number" id="tax-rate">%</dd>
+				<dt><label for="tax-fraction">消費税端数処理</label></dt>
+				<dd><select id="tax-fraction"><option value="floor">切り捨て</option><option value="round">四捨五入</option><option value="ceil">切り上げ</option></select></dd>
+				<dt><label for="shop">店名・社名表示(HTML)</label></dt>
+				<dd><textarea id="shop"></textarea></dd>
+			</dl>
+			<p><button>OK</button></p>
+		</form>
+	</article>
+</main>
+</body>
+</html>
