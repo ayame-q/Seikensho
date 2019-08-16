@@ -48,3 +48,33 @@ function make() {
 	};
 	ipcRenderer.send("openPageWindow", type, isPrint, data);
 }
+
+ipcRenderer.on("openData", (event, data) => {
+	console.log(data);
+	const elementForm = document.getElementsByTagName("form")[0];
+	const elementName1 = document.getElementById("name-1");
+	const elementName2 = document.getElementById("name-2");
+	const elementTitle = document.getElementById("title");
+	const elementDate = document.getElementById("date");
+	const elementItems = document.getElementsByClassName("item");
+
+	elementForm.type.value = data.type;
+	elementName1.value = data.name[0];
+	if(data.name[1]) elementName2.value = data.name[1];
+	elementTitle.value = data.title;
+	elementDate.value = data.date;
+	for(let i = 0; i < data.items.length; i++){
+		const elementItemDate = elementItems[i].getElementsByClassName("date")[0];
+		const elementItemProduct1 = elementItems[i].getElementsByClassName("product-1")[0];
+		const elementItemProduct2 = elementItems[i].getElementsByClassName("product-2")[0];
+		const elementPrice = elementItems[i].getElementsByClassName("price")[0];
+		const elementNumber = elementItems[i].getElementsByClassName("number")[0];
+		const elementNote = elementItems[i].getElementsByClassName("note")[0];
+		if(data.items[i].date) elementItemDate.value = data.items[i].date;
+		if(data.items[i].product[0]) elementItemProduct1.value = data.items[i].product[0];
+		if(data.items[i].product[1]) elementItemProduct2.value = data.items[i].product[1];
+		if(data.items[i].unitPrice) elementPrice.value = data.items[i].unitPrice;
+		if(data.items[i].number) elementNumber.value = data.items[i].number;
+		if(data.items[i].note) elementNote.value = data.items[i].note;
+	}
+});

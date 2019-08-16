@@ -59,7 +59,7 @@ app.on("ready", function () {
 						label: '開く',
 						accelerator: 'CmdOrCtrl+O',
 						click(item, focusedWindow, focusedWebContents) {
-							openConfigWindow();
+							openFileOpenWindow();
 						}
 					},
 					{role: 'recentDocuments', label: "最近使用したファイルを開く"},
@@ -286,4 +286,17 @@ function openConfigWindow() {
 	configWindow.webContents.on("did-finish-load", (event) => {
 		configWindow.webContents.send("loadConfig", config);
 	});
+}
+
+function openFileOpenWindow() {
+	const filePaths = dialog.showOpenDialogSync({
+		filters: [
+			{ name: 'Seikenshoファイル', extensions: ['skn'] }
+		],
+		properties: ["openFile"]
+	});
+	if(filePaths[0]){
+		const data = fs.readFileSync(filePaths[0], 'utf8');
+		mainWindow.webContents.send("openData", JSON.parse(data));
+	}
 }
