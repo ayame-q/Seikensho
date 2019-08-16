@@ -78,3 +78,7 @@ ipcRenderer.on("openData", (event, data) => {
 		if(data.items[i].note) elementNote.value = data.items[i].note;
 	}
 });
+
+function openFileOpenWindow() {
+	ipcRenderer.send("openFileOpenWindow");
+}

@@ -300,3 +300,7 @@ function openFileOpenWindow() {
 		mainWindow.webContents.send("openData", JSON.parse(data));
 	}
 }
+
+ipcMain.on("openFileOpenWindow", () => {
+	openFileOpenWindow();
+});
