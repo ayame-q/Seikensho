@@ -50,136 +50,134 @@ app.on("ready", function () {
 
 	mainWindow.loadFile("src/renderer/index.html");
 
-	mainWindow.webContents.on("did-finish-load", () => {
-		const menuTemplate = [
-			{
-				label: 'ファイル',
-				submenu: [
-					{
-						label: '開く',
-						accelerator: 'CmdOrCtrl+O',
-						click(item, focusedWindow, focusedWebContents) {
-							openFileOpenWindow();
-						}
-					},
-					{role: 'recentDocuments', label: "最近使用したファイルを開く"},
-				]
-			},
-			{
-				label: '編集',
-				submenu: [
-					{role: 'undo', label: "元に戻す"},
-					{role: 'redo', label: "やり直し"},
-					{type: 'separator'},
-					{role: 'cut', label: "切り取り"},
-					{role: 'copy', label: "コピー"},
-					{role: 'paste', label: "貼り付け"},
-					{role: 'selectAll', label: "すべて選択"},
-				]
-			},
-			{
-				label: '表示',
-				submenu: [
-					{role: 'resetzoom', label: "実際のサイズ"},
-					{role: 'zoomin', label: "拡大"},
-					{role: 'zoomout', label: "縮小"},
-					{type: 'separator'},
-					{role: 'togglefullscreen', label: "フルスクリーンにする"}
-				]
-			},
-			{
-				role: 'window',
-				label: 'ウインドウ',
-				submenu: [
-					{role: 'minimize', label: "最小化"},
-					{role: 'close', label: "閉じる"}
-				]
-			}
-		];
-
-		if(debugMode === true){
-			menuTemplate[2].submenu.unshift(
-				{role: 'reload'},
-				{role: 'forcereload'},
-				{role: 'toggledevtools'},
-				{type: 'separator'},)
+	const menuTemplate = [
+		{
+			label: 'ファイル',
+			submenu: [
+				{
+					label: '開く',
+					accelerator: 'CmdOrCtrl+O',
+					click(item, focusedWindow, focusedWebContents) {
+						openFileOpenWindow();
+					}
+				},
+				{role: 'recentDocuments', label: "最近使用したファイルを開く"},
+			]
+		},
+		{
+			label: '編集',
+			submenu: [
+				{role: 'undo', label: "元に戻す"},
+				{role: 'redo', label: "やり直し"},
+				{type: 'separator'},
+				{role: 'cut', label: "切り取り"},
+				{role: 'copy', label: "コピー"},
+				{role: 'paste', label: "貼り付け"},
+				{role: 'selectAll', label: "すべて選択"},
+			]
+		},
+		{
+			label: '表示',
+			submenu: [
+				{role: 'resetzoom', label: "実際のサイズ"},
+				{role: 'zoomin', label: "拡大"},
+				{role: 'zoomout', label: "縮小"},
+				{type: 'separator'},
+				{role: 'togglefullscreen', label: "フルスクリーンにする"}
+			]
+		},
+		{
+			role: 'window',
+			label: 'ウインドウ',
+			submenu: [
+				{role: 'minimize', label: "最小化"},
+				{role: 'close', label: "閉じる"}
+			]
 		}
+	];
 
-		if (process.platform === 'darwin') {
-			menuTemplate.unshift({
-				label: app.getName(),
-				submenu: [
-					{role: 'about', label: app.getName() + "について"},
-					{type: 'separator'},
-					{
-						label: "設定",
-						accelerator: 'CmdOrCtrl+,',
-						click(item, focusedWindow, focusedWebContents) {
-							openConfigWindow();
-						}
-					},
-					{type: 'separator'},
-					{role: 'hide', label: app.getName() + "を隠す"},
-					{role: 'hideOthers', label: "ほかを隠す"},
-					{role: 'unhide', label: "すべてを表示"},
-					{type: 'separator'},
-					{role: 'quit', label: app.getName() + "を終了"}
-				]
-			});
+	if(debugMode === true){
+		menuTemplate[2].submenu.unshift(
+			{role: 'reload'},
+			{role: 'forcereload'},
+			{role: 'toggledevtools'},
+			{type: 'separator'},)
+	}
 
-			// 編集メニュー
-			menuTemplate[2].submenu.push(
+	if (process.platform === 'darwin') {
+		menuTemplate.unshift({
+			label: app.getName(),
+			submenu: [
+				{role: 'about', label: app.getName() + "について"},
 				{type: 'separator'},
 				{
-					label: 'スピーチ',
-					submenu: [
-						{role: 'startspeaking', label: "読み上げを開始"},
-						{role: 'stopspeaking', label: "読み上げを停止"}
-					]
-				}
-			);
-
-			// ウインドウメニュー
-			menuTemplate[4].submenu = [
-				{role: 'close', label: '閉じる'},
-				{role: 'minimize', label: 'しまう'},
-				{role: 'zoom', label: '拡大/縮小'},
+					label: "設定",
+					accelerator: 'CmdOrCtrl+,',
+					click(item, focusedWindow, focusedWebContents) {
+						openConfigWindow();
+					}
+				},
 				{type: 'separator'},
-				{role: 'front', label: 'すべてを手前に移動'}
+				{role: 'hide', label: app.getName() + "を隠す"},
+				{role: 'hideOthers', label: "ほかを隠す"},
+				{role: 'unhide', label: "すべてを表示"},
+				{type: 'separator'},
+				{role: 'quit', label: app.getName() + "を終了"}
 			]
-		} else {
-			menuTemplate.push({
-				label: "ツール",
+		});
+
+		// 編集メニュー
+		menuTemplate[2].submenu.push(
+			{type: 'separator'},
+			{
+				label: 'スピーチ',
 				submenu: [
-					{
-						label: "設定",
-						accelerator: 'CmdOrCtrl+,',
-						click(item, focusedWindow, focusedWebContents) {
-							openConfigWindow();
-						}
-					}
+					{role: 'startspeaking', label: "読み上げを開始"},
+					{role: 'stopspeaking', label: "読み上げを停止"}
 				]
-			});
-			menuTemplate.push({
-				label: "ヘルプ",
-				submenu: [
-					{
-						label: "バージョン情報",
-						click(item, focusedWindow, focusedWebContents) {
-							dialog.showMessageBox({
-								message: app.getName(),
-								detail: "バージョン: " + app.getVersion() + "\nAuthor: " + require('../package.json').author
-							})
-						}
+			}
+		);
+
+		// ウインドウメニュー
+		menuTemplate[4].submenu = [
+			{role: 'close', label: '閉じる'},
+			{role: 'minimize', label: 'しまう'},
+			{role: 'zoom', label: '拡大/縮小'},
+			{type: 'separator'},
+			{role: 'front', label: 'すべてを手前に移動'}
+		]
+	} else {
+		menuTemplate.push({
+			label: "ツール",
+			submenu: [
+				{
+					label: "設定",
+					accelerator: 'CmdOrCtrl+,',
+					click(item, focusedWindow, focusedWebContents) {
+						openConfigWindow();
 					}
-				]
-			});
-		}
+				}
+			]
+		});
+		menuTemplate.push({
+			label: "ヘルプ",
+			submenu: [
+				{
+					label: "バージョン情報",
+					click(item, focusedWindow, focusedWebContents) {
+						dialog.showMessageBox({
+							message: app.getName(),
+							detail: "バージョン: " + app.getVersion() + "\nAuthor: " + require('../package.json').author
+						})
+					}
+				}
+			]
+		});
+	}
 
 
-		const menu = Menu.buildFromTemplate(menuTemplate);
-		Menu.setApplicationMenu(menu);
-	});
+	const menu = Menu.buildFromTemplate(menuTemplate);
+	Menu.setApplicationMenu(menu);
 
 	// メインウインドウが閉じられる前の処理
 	mainWindow.on('close', () => {
@@ -296,6 +294,7 @@ function openFileOpenWindow() {
 		properties: ["openFile"]
 	});
 	if(filePaths[0]){
+		app.addRecentDocument(filePaths[0]);
 		const data = fs.readFileSync(filePaths[0], 'utf8');
 		mainWindow.webContents.send("openData", JSON.parse(data));
 	}
@@ -304,3 +303,4 @@ function openFileOpenWindow() {
 ipcMain.on("openFileOpenWindow", () => {
 	openFileOpenWindow();
 });
+

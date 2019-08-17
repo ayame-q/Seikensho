@@ -50,7 +50,6 @@ function make() {
 }
 
 ipcRenderer.on("openData", (event, data) => {
-	console.log(data);
 	const elementForm = document.getElementsByTagName("form")[0];
 	const elementName1 = document.getElementById("name-1");
 	const elementName2 = document.getElementById("name-2");
