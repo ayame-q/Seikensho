@@ -1,6 +1,6 @@
 {
   "name": "Seikensho",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Apps to create bill and estimate",
   "main": "./src/main.js",
   "scripts": {

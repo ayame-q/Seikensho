@@ -215,6 +215,10 @@ body {
 .config dd:not(:last-child) {
   margin-bottom: 0.5em;
 }
+.config .subtitle {
+  display: block;
+  font-size: smaller;
+}
 
 .subtitle {
   display: block;

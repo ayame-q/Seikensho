@@ -1,5 +1,32 @@
 const {ipcRenderer} = require('electron');
 
+ipcRenderer.on("pageDomReady", (event, config) => {
+	if(config.listName){
+		const elementName1 = document.getElementById("name-1");
+		const elementName1Datalist = document.getElementById("name-1-datalist");
+		for (data of config.listName){
+			const elementNameOption = document.createElement("option");
+			elementNameOption.setAttribute("value", data.name);
+			elementName1Datalist.appendChild(elementNameOption);
+		}
+		elementName1.onchange = () => {
+			const elementName2Datalist = document.getElementById("name-2-datalist");
+			const search = config.listName.findIndex((data) => {
+				return data.name === elementName1.value;
+			});
+			if(search !== -1 && config.listName[search].subtitles){
+				for (data of config.listName[search].subtitles){
+					const elementNameOption = document.createElement("option");
+					elementNameOption.setAttribute("value", data);
+					elementName2Datalist.appendChild(elementNameOption);
+				}
+			}else{
+				elementName2Datalist.innerHTML = null;
+			}
+		}
+	}
+});
+
 function make() {
 	const elementForm = document.getElementsByTagName("form")[0];
 	const elementName1 = document.getElementById("name-1");

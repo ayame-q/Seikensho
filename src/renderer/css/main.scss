@@ -220,6 +220,10 @@ body{
 	dd:not(:last-child){
 		margin-bottom: 0.5em;
 	}
+	.subtitle{
+		display: block;
+		font-size: smaller;
+	}
 }
 
 .subtitle{

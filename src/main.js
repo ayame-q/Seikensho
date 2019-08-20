@@ -179,6 +179,10 @@ app.on("ready", function () {
 	const menu = Menu.buildFromTemplate(menuTemplate);
 	Menu.setApplicationMenu(menu);
 
+	mainWindow.webContents.on("dom-ready", (event) => {
+		mainWindow.webContents.send("pageDomReady", config);
+	});
+
 	// メインウインドウが閉じられる前の処理
 	mainWindow.on('close', () => {
 		bounds.mainwindow = mainWindow.getBounds();

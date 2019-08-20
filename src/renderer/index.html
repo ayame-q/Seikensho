@@ -24,8 +24,10 @@
 			<div id="header-left">
 				<div id="wrap-name">
 					<p id="p-name">
-						<input type="text" id="name-1" placeholder="宛名" required>
-						<input type="text" id="name-2" placeholder="宛名(2行目)">
+						<input type="text" id="name-1" placeholder="宛名" list="name-1-datalist" required>
+						<datalist id="name-1-datalist"></datalist>
+						<input type="text" id="name-2" placeholder="宛名(2行目)" list="name-2-datalist">
+						<datalist id="name-2-datalist"></datalist>
 					</p>
 					<p id="p-title">
 						<select id="title">
