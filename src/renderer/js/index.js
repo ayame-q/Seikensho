@@ -1,10 +1,10 @@
-const {ipcRenderer} = require('electron');
+const {ipcRenderer} = require("electron");
 
 ipcRenderer.on("pageDomReady", (event, config) => {
-	if(config.listName){
+	if (config.listName) {
 		const elementName1 = document.getElementById("name-1");
 		const elementName1Datalist = document.getElementById("name-1-datalist");
-		for (data of config.listName){
+		for (data of config.listName) {
 			const elementNameOption = document.createElement("option");
 			elementNameOption.setAttribute("value", data.name);
 			elementName1Datalist.appendChild(elementNameOption);
@@ -14,16 +14,16 @@ ipcRenderer.on("pageDomReady", (event, config) => {
 			const search = config.listName.findIndex((data) => {
 				return data.name === elementName1.value;
 			});
-			if(search !== -1 && config.listName[search].subtitles){
-				for (data of config.listName[search].subtitles){
+			if (search !== -1 && config.listName[search].subtitles) {
+				for (data of config.listName[search].subtitles) {
 					const elementNameOption = document.createElement("option");
 					elementNameOption.setAttribute("value", data);
 					elementName2Datalist.appendChild(elementNameOption);
 				}
-			}else{
+			} else {
 				elementName2Datalist.innerHTML = null;
 			}
-		}
+		};
 	}
 });
 
@@ -45,7 +45,7 @@ function make() {
 	let items = [];
 	let count = 0;
 	let total = 0;
-	for (const elementItem of elementItems){
+	for (const elementItem of elementItems) {
 		const elementItemDate = elementItem.getElementsByClassName("date")[0];
 		const elementItemProduct1 = elementItem.getElementsByClassName("product-1")[0];
 		const elementItemProduct2 = elementItem.getElementsByClassName("product-2")[0];
@@ -86,22 +86,22 @@ ipcRenderer.on("openData", (event, data) => {
 
 	elementForm.type.value = data.type;
 	elementName1.value = data.name[0];
-	if(data.name[1]) elementName2.value = data.name[1];
+	if (data.name[1]) elementName2.value = data.name[1];
 	elementTitle.value = data.title;
 	elementDate.value = data.date;
-	for(let i = 0; i < data.items.length; i++){
+	for (let i = 0; i < data.items.length; i++) {
 		const elementItemDate = elementItems[i].getElementsByClassName("date")[0];
 		const elementItemProduct1 = elementItems[i].getElementsByClassName("product-1")[0];
 		const elementItemProduct2 = elementItems[i].getElementsByClassName("product-2")[0];
 		const elementPrice = elementItems[i].getElementsByClassName("price")[0];
 		const elementNumber = elementItems[i].getElementsByClassName("number")[0];
 		const elementNote = elementItems[i].getElementsByClassName("note")[0];
-		if(data.items[i].date) elementItemDate.value = data.items[i].date;
-		if(data.items[i].product[0]) elementItemProduct1.value = data.items[i].product[0];
-		if(data.items[i].product[1]) elementItemProduct2.value = data.items[i].product[1];
-		if(data.items[i].unitPrice) elementPrice.value = data.items[i].unitPrice;
-		if(data.items[i].number) elementNumber.value = data.items[i].number;
-		if(data.items[i].note) elementNote.value = data.items[i].note;
+		if (data.items[i].date) elementItemDate.value = data.items[i].date;
+		if (data.items[i].product[0]) elementItemProduct1.value = data.items[i].product[0];
+		if (data.items[i].product[1]) elementItemProduct2.value = data.items[i].product[1];
+		if (data.items[i].unitPrice) elementPrice.value = data.items[i].unitPrice;
+		if (data.items[i].number) elementNumber.value = data.items[i].number;
+		if (data.items[i].note) elementNote.value = data.items[i].note;
 	}
 });
 

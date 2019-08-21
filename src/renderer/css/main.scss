@@ -1,60 +1,77 @@
 html{
 }
+
 body{
 	margin-top: 0;
 }
+
 .index{
 	font-size: large;
+
 	h1{
 		display: none;
 	}
+
 	nav{
 		display: flex;
 		justify-content: space-between;
 		align-content: center;
+
 		ul{
 			list-style: none;
 			display: flex;
 			align-content: center;
 			padding: 0;
+
 			&#menubuttons{
 				margin: 0.2em 0;
+
 				li{
 					padding: 0;
+
 					button{
 						font-size: large;
 						padding: 1em 2em;
 					}
 				}
 			}
+
 			li{
 				margin: 0;
 				padding: 0 1em;
 			}
 		}
 	}
+
 	input{
 		font-size: large;
 	}
+
 	#p-name, #p-title, #p-name-double, #p-date{
 		padding: 0;
 		margin: 0;
 	}
+
 	#header-left{
 		float: left;
 		width: calc(100% - 12em);
+
 		#wrap-name{
 			display: flex;
 			align-items: center;
+
 			#p-name{
 				width: calc(90% - 7em);
+
 				input{
 					width: 99%;
 					display: block;
 				}
 			}
+
 			#p-title{
 				width: 7em;
+
 				select{
 					width: 100%;
 					font-size: 2.2em;
@@ -63,46 +80,58 @@ body{
 			}
 		}
 	}
+
 	#header-right{
 		float: right;
 		width: 12em;
+
 		#p-date{
 			width: 100%;
+
 			input{
 				width: 100%;
 				font-size: xx-large;
 			}
 		}
 	}
+
 	table{
 		clear: both;
 		width: 100%;
 		padding: 1em 0;
+
 		tr{
 			td{
 				input{
 					width: 99%;
+
 					&.price, &.number{
 						text-align: right;
 					}
 				}
+
 				&.product{
 					width: calc(100% - 18em);
 				}
+
 				&.td-date{
 					width: 9em;
 				}
+
 				&.td-price{
 					width: 6em;
 				}
+
 				&.td-number{
 					width: 3em;
 				}
 			}
 		}
 	}
+
 	#buttons{
 		text-align: center;
+
 		button{
 			font-size: x-large;
 			padding: 1em 2em;
@@ -114,12 +143,14 @@ body{
 	h1{
 		font-size: xx-large;
 	}
+
 	header{
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		width: 60%;
 	}
+
 	#name-wrap{
 		float: left;
 		font-size: 1.5em;
@@ -129,15 +160,18 @@ body{
 		border-bottom: solid 1px;
 		width: 60%;
 		box-sizing: border-box;
+
 		p{
 			margin: 0;
 		}
 	}
+
 	#comment-wrap{
 		float: left;
 		width: 60%;
 		box-sizing: border-box;
 	}
+
 	dl#total{
 		float: left;
 		font-size: 1.5em;
@@ -149,48 +183,61 @@ body{
 		border: solid 2px;
 		width: 60%;
 		box-sizing: border-box;
+
 		dd::before{
 			content: "¥";
 		}
 	}
+
 	#shop{
 		float: right;
 		width: 40%;
 		padding-left: 5%;
 		box-sizing: border-box;
 		max-height: 130px;
+
 		*{
 			max-height: 130px;
 		}
 	}
+
 	table{
 		clear: both;
 		width: 100%;
 		margin-top: 1em;
 		text-align: center;
+
 		#totalTr{
 			font-size: 1.2em;
 		}
+
 		td, th{
 			border: solid 1px;
+
 			&.td-date{
 				width: 5em;
 			}
+
 			&.td-product{
 				width: calc(100% - 30em);
 			}
+
 			&.td-unitprice{
 				width: 6em;
 			}
+
 			&.td-number{
 				width: 3em;
 			}
+
 			&.td-total{
 				width: 8em;
 			}
+
 			&.td-note{
 				width: 8em;
 			}
+
 			&.num{
 				text-align: right;
 				padding-right: 0.1em;
@@ -201,25 +248,32 @@ body{
 
 .config{
 	font-size: large;
+
 	input, select, button{
 		font-size: large;
 	}
+
 	button{
 		padding: 0.5em 1em;
 	}
+
 	textarea{
 		width: 80%;
 		height: 5em;
 	}
+
 	input#save-path{
 		width: 80%;
 	}
+
 	dt{
 		font-size: x-large;
 	}
+
 	dd:not(:last-child){
 		margin-bottom: 0.5em;
 	}
+
 	.subtitle{
 		display: block;
 		font-size: smaller;

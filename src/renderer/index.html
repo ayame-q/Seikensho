@@ -13,18 +13,25 @@
 		<form onsubmit="make(); return false;">
 			<nav>
 				<ul id="type">
-					<li><input type="radio" id="type-bill" name="type" value="bill" checked><label for="type-bill">請求書作成</label></li>
-					<li><input type="radio" id="type-estimate" name="type" value="estimate"><label for="type-estimate">見積書作成</label></li>
-					<li><input type="radio" id="type-deliverynote" name="type" value="deliverynote"><label for="type-deliverynote">納品書作成</label></li>
+					<li>
+						<input type="radio" id="type-bill" name="type" value="bill" checked><label for="type-bill">請求書作成</label>
+					</li>
+					<li><input type="radio" id="type-estimate" name="type" value="estimate"><label for="type-estimate">見積書作成</label>
+					</li>
+					<li>
+						<input type="radio" id="type-deliverynote" name="type" value="deliverynote"><label for="type-deliverynote">納品書作成</label>
+					</li>
 				</ul>
 				<ul id="menubuttons">
-					<li><button type="button" onclick="openFileOpenWindow()">開く</button></li>
+					<li>
+						<button type="button" onclick="openFileOpenWindow()">開く</button>
+					</li>
 				</ul>
 			</nav>
 			<div id="header-left">
 				<div id="wrap-name">
 					<p id="p-name">
-						<input type="text" id="name-1" placeholder="宛名" list="name-1-datalist" required>
+						<input type="text" id="name-1" placeholder="宛名" list="name-1-datalist" autocomplete="on" required>
 						<datalist id="name-1-datalist"></datalist>
 						<input type="text" id="name-2" placeholder="宛名(2行目)" list="name-2-datalist">
 						<datalist id="name-2-datalist"></datalist>
@@ -41,87 +48,117 @@
 				<p id="p-date"><input type="date" id="date" required></p>
 			</div>
 			<table>
-				<tr><th>日付</th><th>品名</th><th>単価</th><th>数量</th><th>備考</th></tr>
+				<tr>
+					<th>日付</th>
+					<th>品名</th>
+					<th>単価</th>
+					<th>数量</th>
+					<th>備考</th>
+				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date" required></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)" required><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)" required><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price" required></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number" required></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>
 				</tr>
 				<tr class="item">
 					<td class="td-date"><input type="date" class="date"></td>
-					<td class="td-product"><input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)"></td>
+					<td class="td-product">
+						<input type="text" class="product-1" placeholder="品名(1行目)"><input type="text" class="product-2" placeholder="品名(2行目)">
+					</td>
 					<td class="td-price"><input type="number" placeholder="単価" class="price"></td>
 					<td class="td-number"><input type="number" placeholder="数量" class="number"></td>
 					<td class="td-note"><input type="text" placeholder="備考" class="note"></td>

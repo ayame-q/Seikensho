@@ -1,5 +1,5 @@
-const {ipcRenderer} = require('electron');
-const {dialog} = require('electron').remote;
+const {ipcRenderer} = require("electron");
+const {dialog} = require("electron").remote;
 
 function setConfig() {
 	const elementTax = document.getElementById("tax");
@@ -11,13 +11,13 @@ function setConfig() {
 
 	const arrListName = elementListName.value.split(/\r\n|\r|\n/);
 	let listName = [];
-	for (data of arrListName){
+	for (data of arrListName) {
 		console.log(data);
 		let match = data.match(/(.+)\s*:\s*(.+)/);
-		if(match){
+		if (match) {
 			let subtitles = match[2].split(/\s*,\s*/);
 			listName.push({name: match[1], subtitles: subtitles});
-		}else{
+		} else {
 			listName.push({name: data});
 		}
 	}
@@ -41,21 +41,21 @@ ipcRenderer.on("loadConfig", (event, config) => {
 	const elementShop = document.getElementById("shop");
 
 	let listName = "";
-	if(config.listName){
+	if (config.listName) {
 		let listNameList = [];
-		for (data of config.listName){
-			if(data.subtitles){
+		for (data of config.listName) {
+			if (data.subtitles) {
 				listNameList.push(data.name + ": " + data.subtitles.join(", "));
-			}else{
+			} else {
 				listNameList.push(data.name);
 			}
 		}
 		listName = listNameList.join("\n");
 	}
 
-	if(config.includeTax){
+	if (config.includeTax) {
 		elementTax.value = "include-tax";
-	}else{
+	} else {
 		elementTax.value = "without-tax";
 	}
 	elementTaxRate.value = config.taxRate;
@@ -70,13 +70,13 @@ function selectDir() {
 	let dialogOption = {
 		title: "保存先フォルダを選択",
 		buttonLabel: "選択",
-		properties: ["openDirectory", "createDirectory", "noResolveAliases"]
+		properties: ["openDirectory", "createDirectory", "noResolveAliases"],
 	};
-	if(elementSavePath.value){
+	if (elementSavePath.value) {
 		dialogOption.defaultPath = elementSavePath.value;
 	}
-	dialog.showOpenDialog(dialogOption).then(result =>{
-		if(result.filePaths[0]) {
+	dialog.showOpenDialog(dialogOption).then(result => {
+		if (result.filePaths[0]) {
 			elementSavePath.value = result.filePaths[0];
 		}
 	});

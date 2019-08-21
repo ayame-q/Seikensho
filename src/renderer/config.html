@@ -13,19 +13,30 @@
 		<form onsubmit="setConfig(); return false;">
 			<dl>
 				<dt><label for="tax">消費税表示</label></dt>
-				<dd><select id="tax"><option value="include-tax">税込み表示</option><option value="without-tax">税抜き表示</option></select></dd>
+				<dd><select id="tax">
+					<option value="include-tax">税込み表示</option>
+					<option value="without-tax">税抜き表示</option>
+				</select></dd>
 				<dt><label for="tax-rate">消費税税率</label></dt>
 				<dd><input type="number" id="tax-rate">%</dd>
 				<dt><label for="tax-fraction">消費税端数処理</label></dt>
-				<dd><select id="tax-fraction"><option value="floor">切り捨て</option><option value="round">四捨五入</option><option value="ceil">切り上げ</option></select></dd>
+				<dd><select id="tax-fraction">
+					<option value="floor">切り捨て</option>
+					<option value="round">四捨五入</option>
+					<option value="ceil">切り上げ</option>
+				</select></dd>
 				<dt><label for="save-path">自動保存場所</label></dt>
-				<dd><input type="text" id="save-path" disabled><input type="button" onclick="selectDir()" value="参照"></dd>
-				<dt><label for="list-name">宛名データリスト<span class="subtitle">(1行ごとに1項目、宛名(1行目選択肢): 宛名(2行目選択肢), 宛名(2行目選択肢), ...)</span></label></dt>
+				<dd><input type="text" id="save-path" disabled><input type="button" onclick="selectDir()" value="参照">
+				</dd>
+				<dt><label for="list-name">宛名データリスト<span class="subtitle">(1行ごとに1項目、宛名(1行目選択肢): 宛名(2行目選択肢), 宛名(2行目選択肢), ...)</span></label>
+				</dt>
 				<dd><textarea id="list-name"></textarea></dd>
 				<dt><label for="shop">店名・社名表示(HTML)</label></dt>
 				<dd><textarea id="shop"></textarea></dd>
 			</dl>
-			<p><button>OK</button></p>
+			<p>
+				<button>OK</button>
+			</p>
 		</form>
 	</article>
 </main>
