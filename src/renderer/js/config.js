@@ -53,7 +53,7 @@ ipcRenderer.on("loadConfig", (event, config) => {
 		listName = listNameList.join("\n");
 	}
 
-	if (config.includeTax) {
+	if (config.isIncludeTax) {
 		elementTax.value = "include-tax";
 	} else {
 		elementTax.value = "without-tax";
