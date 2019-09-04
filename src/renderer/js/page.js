@@ -34,7 +34,7 @@ ipcRenderer.on("data", (event, isPrint, data, config) => {
 	for (const item of data.items) {
 		if (item.product[0]) {
 			const date = new Date(item.date);
-			let line = "<td class='td-date'>" + (date.getMonth() + 1) + "/" + date.getDate() + "</td><td class='td-product'>" + item.product[0];
+			let line = "<td class='td-date'>" + ( !Number.isNaN(date.getMonth()) ? ((date.getMonth() + 1) + "/" + date.getDate() ) : "" ) + "</td><td class='td-product'>" + item.product[0];
 			if (item.product[1]) {
 				line += "<span class='subtitle'>" + item.product[1] + "</span>";
 			}
